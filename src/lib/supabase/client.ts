@@ -1,0 +1,13 @@
+// ============================================================
+// lib/supabase/client.ts — Browser Supabase client
+// Used in Client Components
+// ============================================================
+import { createBrowserClient } from '@supabase/ssr';
+
+export function createClient() {
+  // NEXT_PUBLIC_* vars are safe to expose — they are the public anon key
+  return createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+}
